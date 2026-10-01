@@ -1,44 +1,35 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categoria</title>
     <link rel="stylesheet" href="{% static 'categorias/categorias.css' %}">
 </head>
-<body>
-
-    <div class="contenedor-formulario">    
+<body class="pagina-formulario">
+    <main class="contenedor contenedor-formulario">
+        <a class="volver" href="/categorias/lista/">&larr; Ver categorias</a>
         <h1>Categoria</h1>
 
-        <form method="POST">
+        <form method="POST" class="formulario">
+
             {% csrf_token %}
 
-            <p>
-                <label>Nombre:
-                    <input type="text" name="nombre" value="{{ categoria.nombre|default:'' }}" required>
-                </label>
+            <p class="campo">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" name="nombre" value="{{ categoria.nombre|default:'' }}" required>
             </p>
 
-            <p>
-                <label>Observaciones:
-                    <textarea name="observaciones" required>{{ categoria.observaciones|default:'' }}</textarea>
-                </label>
+            <p class="campo">
+                <label for="descripcion">Observaciones</label>
+                <textarea id="descripcion" name="descripcion" rows="5" required>{{ categoria.descripcion|default:'' }}</textarea>
             </p>
 
-            <button type="submit">
-                Guardar
-            </button>
+            <button class="boton" type="submit">Guardar</button>
 
         </form>
-
-        <br>
-
-        <a href="/categorias/lista/">
-            Ver categorias
-        </a>
-    </div>
+    </main>
 
 </body>
 </html>

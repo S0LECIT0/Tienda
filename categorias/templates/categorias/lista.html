@@ -1,30 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
     <link rel="stylesheet" href="{% static 'categorias/categorias.css' %}">
 </head>
-<body>
-    
+<body class="pagina-categorias">
     <main class="contenedor">
-    <h1>Lista de categorias</h1>
+        <header class="encabezado">
+            <div>
+                <h1>Categorias</h1>
+            </div>
+            <a class="boton" href="/categorias/">Crear nueva categoria</a>
+        </header>
 
-    <a class="boton" href="/categorias/">Crear nueva categoria</a>
-
-    {% for categoria in categorias %}
-        <section class="producto-card">
-            <h2>{{ categoria.nombre }}</h2>
-            <a href="/categorias/detalle/{{ categoria.id }}/">Ver</a>
-            <a href="/categorias/editar/{{ categoria.id }}/">Editar</a>
-            <a href="/categorias/eliminar/{{ categoria.id }}/">Eliminar</a>
+        <section class="lista-categorias">
+            {% for categoria in categorias %}
+                <article class="categoria">
+                    <div>
+                        <h2>{{ categoria.nombre }}</h2>
+                        <p>{{ categoria.descripcion }}</p>
+                    </div>
+                    <nav class="acciones" aria-label="Acciones de {{ categoria.nombre }}">
+                        <a href="/categorias/editar/{{ categoria.id }}">Editar</a>
+                        <a class="enlace-eliminar" href="/categorias/eliminar/{{ categoria.id }}">Eliminar</a>
+                    </nav>
+                </article>
+            {% empty %}
+                <p class="vacio">No hay categorias disponibles.</p>
+            {% endfor %}
         </section>
-    {% empty %}
-        <p>No hay categorias.</p>
-    {% endfor %}
-</main>
-
+    </main>
 </body>
 </html>

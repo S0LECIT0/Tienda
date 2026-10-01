@@ -1,128 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+	font-family: 'DM Sans', sans-serif;
+	color: #202b27;
+	background: #f3f6f1;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	--verde: #276b50;
+	--verde-oscuro: #1c503b;
+	--borde: #dce5dc;
+	--suave: #6d7b72;
+}
+
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 32px 16px;
-    background: #7041a6;
-    color: #33283a;
-    font-family: Arial, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	padding: 56px 24px;
+	background-image: linear-gradient(135deg, rgba(225, 237, 224, .72), transparent 48%);
 }
 
-.contenedor,
-.contenedor-formulario {
-    width: min(100%, 760px);
-    margin: 24px auto;
-    padding: 28px;
-    border-radius: 14px;
-    background: #fff1d6;
-    box-shadow: 0 8px 24px rgb(36 15 54 / 25%);
+.contenedor {
+	width: min(100%, 920px);
+	margin: 0 auto;
 }
 
-.contenedor-formulario {
-    max-width: 520px;
+.encabezado {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 28px;
+}
+
+.sobrelinea {
+	margin: 0 0 8px;
+	color: var(--verde);
+	font-size: .75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h1,
+h2 {
+	margin: 0;
+	font-family: 'Manrope', sans-serif;
 }
 
 h1 {
-    margin-top: 0;
-    color: #563080;
+	font-size: clamp(1.8rem, 5vw, 2.6rem);
+	line-height: 1.15;
 }
 
-.producto-card {
-    margin: 16px 0;
-    padding: 18px;
-    border: 1px solid #ddcdb5;
-    border-radius: 10px;
-    background: #fffaf0;
-}
-
-.producto-card h2 {
-    margin: 0 0 12px;
-    color: #563080;
-}
-
-.detalle p {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddcdb5;
-}
-
-form {
-    padding: 20px;
-    border-radius: 10px;
-    background: #fffaf0;
-}
-
-form p {
-    margin: 16px 0;
-}
-
-label {
-    display: inline-block;
-    width: 100%;
-    font-weight: 600;
-}
-
-input,
-textarea {
-    display: block;
-    width: 100%;
-    margin-top: 7px;
-    padding: 10px 12px;
-    border: 1px solid #bca9c8;
-    border-radius: 7px;
-    background: #fff;
-    font: inherit;
-}
-
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-    outline: 2px solid #7041a6;
-    outline-offset: 1px;
-}
-
-a,
-button {
-    display: inline-block;
-    margin: 4px 4px 4px 0;
-    font: inherit;
-}
-
-a {
-    color: #563080;
-    font-weight: 600;
-}
-
-button,
 .boton {
-    padding: 10px 16px;
-    border: 0;
-    border-radius: 7px;
-    background: #7041a6;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+	display: inline-flex;
+	min-height: 44px;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	border-radius: 5px;
+	padding: 0 18px;
+	background: var(--verde);
+	color: #fff;
+	font: inherit;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color .18s ease, transform .18s ease;
 }
 
-button:hover,
 .boton:hover {
-    background: #563080;
+	transform: translateY(-1px);
+	background: var(--verde-oscuro);
+}
+
+.lista-categorias {
+	border-top: 1px solid var(--borde);
+}
+
+.categoria {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	border-bottom: 1px solid var(--borde);
+	padding: 22px 4px;
+}
+
+.categoria h2 {
+	margin-bottom: 6px;
+	font-size: 1.1rem;
+}
+
+.categoria p {
+	margin: 0;
+	color: var(--suave);
+	line-height: 1.6;
+}
+
+.acciones {
+	display: flex;
+	flex: 0 0 auto;
+	gap: 18px;
+}
+
+.acciones a,
+.volver {
+	color: var(--verde);
+	font-size: .92rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.acciones a:hover,
+.volver:hover {
+	text-decoration: underline;
+}
+
+.acciones .enlace-eliminar {
+	color: #b1483e;
+}
+
+.vacio {
+	margin: 0;
+	padding: 24px 4px;
+	color: var(--suave);
+}
+
+.contenedor-formulario {
+	max-width: 620px;
+}
+
+.volver {
+	display: inline-block;
+	margin-bottom: 34px;
+}
+
+.pagina-formulario h1 {
+	margin-bottom: 28px;
+}
+
+.formulario {
+	border-top: 1px solid var(--borde);
+	padding-top: 24px;
+}
+
+.campo {
+	margin: 0 0 20px;
+}
+
+.campo label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 700;
+}
+
+.campo input,
+.campo textarea {
+	display: block;
+	width: 100%;
+	border: 1px solid #cbd8cd;
+	border-radius: 5px;
+	padding: 12px 13px;
+	background: #fff;
+	color: inherit;
+	font: inherit;
+}
+
+.campo textarea {
+	min-height: 130px;
+	resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+	outline: 3px solid rgba(39, 107, 80, .16);
+	border-color: var(--verde);
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 16px 10px;
-    }
+	body {
+		padding: 34px 18px;
+	}
 
-    .contenedor,
-    .contenedor-formulario {
-        margin: 12px auto;
-        padding: 18px;
-    }
+	.encabezado,
+	.categoria {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.encabezado {
+		gap: 18px;
+	}
+
+	.acciones {
+		padding-top: 2px;
+	}
 }
