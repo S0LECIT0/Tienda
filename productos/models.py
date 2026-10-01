@@ -5,6 +5,7 @@ class Producto(models.Model):
     categoria = models.CharField()
     precio = models.DecimalField()
     cantidad = models.IntegerField()
+    estado = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre   

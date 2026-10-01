@@ -1,52 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Producto</title>
+    <link rel="stylesheet" href="{% static 'productos/productos.css' %}">
 </head>
 <body>
-    
-    <h1>Producto</h1>
 
-    <form method="POST">
-        {% csrf_token %}
+    <div class="contenedor-formulario">    
+        <h1>Producto</h1>
 
-        <p>
-            <label>Nombre:
-                <input type="text" name="nombre" value="{{ producto.nombre|default:'' }}" required>
-            </label>
-        </p>
+        <form method="POST">
+            {% csrf_token %}
 
-        <p>
-            <label>Categoria:
-                <input type="text" name="categoria" value="{{ producto.categoria|default:'' }}" required>
-            </label>
-        </p>
+            <p>
+                <label>Nombre:
+                    <input type="text" name="nombre" value="{{ producto.nombre|default:'' }}" required>
+                </label>
+            </p>
 
-        <p>
-            <label>Precio:
-                <input type="number" step="0.01" name="precio" value="{{ producto.precio|default:'' }}" required>
-            </label>
-        </p>
+            <p>
+                <label>Categoria:
+                    <input type="text" name="categoria" value="{{ producto.categoria|default:'' }}" required>
+                </label>
+            </p>
 
-        <p>
-            <label>Cantidad:
-                <input type="number" name="cantidad" value="{{ producto.cantidad|default:'' }}" required>
-            </label>
-        </p>
+            <p>
+                <label>Precio:
+                    <input type="number" step="0.01" name="precio" value="{{ producto.precio|default:'' }}" required>
+                </label>
+            </p>
 
-        <button type="submit">
-            Guardar
-        </button>
+            <p>
+                <label>Cantidad:
+                    <input type="number" name="cantidad" value="{{ producto.cantidad|default:'' }}" required>
+                </label>
+            </p>
 
-    </form>
+            <p>
+                <label>
+                    <input type="checkbox" name="estado">
+                    Disponible
+                </label>
+            </p>
 
-    <br>
+            <button type="submit">
+                Guardar
+            </button>
 
-    <a href="/productos/">
-        Ver productos
-    </a>
+        </form>
+
+        <br>
+
+        <a href="/productos/">
+            Ver productos
+        </a>
+    </div>
 
 </body>
 </html>

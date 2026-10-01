@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria</title>
+    <link rel="stylesheet" href="{% static 'categorias/categorias.css' %}">
+</head>
+<body>
+
+    <div class="contenedor-formulario">    
+        <h1>Categoria</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <p>
+                <label>Nombre:
+                    <input type="text" name="nombre" value="{{ categoria.nombre|default:'' }}" required>
+                </label>
+            </p>
+
+            <p>
+                <label>Observaciones:
+                    <textarea name="observaciones" required>{{ categoria.observaciones|default:'' }}</textarea>
+                </label>
+            </p>
+
+            <button type="submit">
+                Guardar
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/categorias/lista/">
+            Ver categorias
+        </a>
+    </div>
+
+</body>
+</html>

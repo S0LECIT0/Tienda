@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" href="{% static 'categorias/categorias.css' %}">
+</head>
+<body>
+    
+    <main class="contenedor">
+    <h1>Lista de categorias</h1>
+
+    <a class="boton" href="/categorias/">Crear nueva categoria</a>
+
+    {% for categoria in categorias %}
+        <section class="producto-card">
+            <h2>{{ categoria.nombre }}</h2>
+            <a href="/categorias/detalle/{{ categoria.id }}/">Ver</a>
+            <a href="/categorias/editar/{{ categoria.id }}/">Editar</a>
+            <a href="/categorias/eliminar/{{ categoria.id }}/">Eliminar</a>
+        </section>
+    {% empty %}
+        <p>No hay categorias.</p>
+    {% endfor %}
+</main>
+
+</body>
+</html>

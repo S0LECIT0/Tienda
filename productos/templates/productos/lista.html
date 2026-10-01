@@ -1,47 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <link rel="stylesheet" href="{% static 'productos/productos.css' %}">
 </head>
 <body>
     
+    <main class="contenedor">
     <h1>Lista de productos</h1>
 
-    <a href="/productos/crear/">
-        Crear nuevo producto
-    </a>
-
-    <hr>
+    <a class="boton" href="/productos/crear/">Crear nuevo producto</a>
 
     {% for producto in productos %}
-        
-        <h3>{{ producto.nombre }}</h3>
-        <p>{{ producto.precio }}</p>
-        <a href="/productos/detalle/{{ producto.id }}/">
-            Ver
-        </a>
-        
-        |
-
-        <a href="/productos/editar/{{ producto.id }}/">
-            Editar
-        </a>
-
-        |
-
-        <a href="/productos/eliminar/{{ producto.id }}/">
-            Eliminar
-        </a>
-
-        <hr>
-
+        <section class="producto-card">
+            <h2>{{ producto.nombre }}</h2>
+            <p>Precio: {{ producto.precio }}</p>
+            <a href="/productos/detalle/{{ producto.id }}/">Ver</a>
+            <a href="/productos/editar/{{ producto.id }}/">Editar</a>
+            <a href="/productos/eliminar/{{ producto.id }}/">Eliminar</a>
+        </section>
     {% empty %}
-
-        <p>No hay contactos.</p>
-
+        <p>No hay productos.</p>
     {% endfor %}
+</main>
 
 </body>
 </html>
